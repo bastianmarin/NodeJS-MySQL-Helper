@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-mysql-helper",
+  "version": "1.0.0",
+  "description": "Helper of MySQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "run start"
+  },
+  "keywords": [
+    "mysql"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastianmarin/nodejs-mysql-helper.git"
+},
+  "author": "iroaK",
+  "license": "MIT",
+  "dependencies": {
+    "mysql2": "^3.12.0"
+  }
+}
