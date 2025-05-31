@@ -44,8 +44,8 @@ class MySQL {
     *   @throws {Error} - Throws an error if the query fails after the maximum number of retries.
     */
     async createQuery(stringQuery, arrayQuery, tryQuery = 0){
+        let Connection = await this.getConnection();
         try{
-            let Connection = await this.getConnection();
             if(Connection){
                 let response = await Connection.execute(stringQuery, arrayQuery);
                 Connection.release();
@@ -60,6 +60,7 @@ class MySQL {
                 }
             }
         } catch(e) {
+            Connection.release();
             if(tryQuery < this.tryConnection){
                 return await this.createQuery(stringQuery, arrayQuery, tryQuery + 1);
             } else {
